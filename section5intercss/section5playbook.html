@@ -1,18 +1,74 @@
+<!-- Section 5 Intermediate CSS see stylespb.css for the CSS code-->-->
+<!--BoilerPlate-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--embedded fonts and favicon-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dawn Rose</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat:wght@300&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico">
+
+
 </head>
 <body>
-    <!--seperating this section with a DIV to style it seperately-->
-    <div>
-        <h1>Hey I'm Dawn</h1>
-        <p>Trainee Web Developer</p>
+    <!-- top container with clouds and mountain-->
+    <div class="top-container">
+        <img class= "topcloud"src="images/cloud.png" alt="Cloud Image">
+        <h1> I'm Dawn</h1>
+        <h2>Trainee Web Developer</h2>
+        <img class= "bottomcloud"src="images/cloud.png" alt="Cloud Image">
+        <img src="images/mountain.png" alt="Mountain Image">
     </div>
+<!-- middle container with profile and skills-->
+    <div class="middle-container">
+        <div class="profile">
+          <img src="images/dawnimge.gif" alt="Dawn's image">
+          <h2>Hello.</h2>
+          <p class= "intro">After years of cajoling from my better half, I am finally learning to code.</p>
+        </div>
+        <hr>
+        <div class="skills">
+          <h2>My Skills.</h2>
 
-    
+          <div class= "skill-row">
+            <img class="cake-img" src="images/cake.jpg" alt="Cake Image">
+            <h3>Cake Design</h3>
+            <p>I am the undisputed queen of cake design.</p>
+            
+          </div>
+
+          <div class="skill-row">
+            <img class="brow-img" src="images/brow4.jpeg" alt="Brow Image">
+            <h3>Brow Technician</h3>
+            <p>Great eyebrows do not happen by accident.....Call me!</p>
+            
+
+
+          </div>
+        </div>
+        <hr>
+        <div class="contact-me">
+          <h2>Get In Touch</h2>
+          <h3>Fancy a natter?</h3>
+          <p class="contact-message">Drop me an email or check out my social media.</p>
+          <a class="btn" href="mailto:tastethedream@gmail.com">CONTACT ME</a>
+        </div>
+      </div>
+      
+      <!--bottom container footer with copyright and social
+        links-->
+      <div class="bottom-container">
+        <a class="footer-link" href="https://www.futurelearn.com/your-achievements">FutureLearn</a>
+        <a class="footer-link" href="https://https://twitter.com/dawn_m_rose">Twitter</a>
+       
+        <p class="copyright">© 2020 Dawn Rose.</p>
+      </div>
+      
+
+
     
 </body>
 </html>

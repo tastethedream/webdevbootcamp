@@ -1,4 +1,7 @@
+/* Section 5 Intermediate CSS notes for section5playbook.html*/
+
 body{
+    color: #40514E;
     margin: 0cm;
     text-align: center;
     font-family: 'Merriweather', serif;
@@ -9,14 +12,70 @@ h1{
     margin: 50px auto 0 auto;
     font-family: 'Sacramento', cursive;
     font-size: 5.625rem;
+    color:#66BFBF;
+    /*double the line height*/
+    line-height: 2;
 }
 h2{
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
+    color:#66BFBF;
+    font-weight: normal;
+    padding-bottom: 10px;
 }
 
 h3{
-    font-family: 'Montserrat', sans-serif;
+    font-family: C;
+    color:#11999E;
+    font-weight: bold;
+}
+a{
+    color:#11999E;
+    font-family:'Montserrat', sans-serif ;
+    text-decoration: none;
+
+}
+/* colour change when hovered over*/
+a:hover{
+    color:#eaf6f6;
+}
+hr{
+    border: dotted #EAF6F6 6px;
+    border-bottom: none;  
+    width: 4%;
+    margin: 100px auto;
+}
+p{
+    line-height: 2;
+}
+.copyright{
+    color: #EAF6F6;
+    font-size: 0.5rem;
+    font-style: italic;
+}
+.footer-link{
+    color: #11999E;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+  
+
+}
+.skill-row{
+    width: 50%;
+    margin: 100px auto 100px auto;
+    text-align: left;
+    
+}
+.intro{
+    width: 30%;
+    margin: auto;
+}
+.contact-message{
+    width: 40%;
+    margin: 40px auto 60px;
 }
 
 .top-container{
@@ -26,21 +85,61 @@ h3{
 }
 
 .middle-container{
-
+    margin: 100px 0;
+    
 }
 
    
 
 .bottom-container{
-   
+   background-color: #66BFBF;
+   padding-top: 30px;
+   padding-bottom: 30px;
 }
+/*styling the images*/
 .bottomcloud{
     position: absolute;
-    left: 300px;
+    left: 250px;
     bottom: 300px;
 }
 .topcloud{
     position: absolute;
     right: 300px;
-    top: 50px;
-}    
+    top: 40px;
+}
+ 
+.cake-img{
+    width: 25%;
+    float: left;
+    margin-right: 30px;
+}  
+.brow-img{
+    width: 25%;
+    float: right;
+    margin-left: 30px;
+}
+/* button code*/
+.btn {
+	box-shadow: 3px 4px 0px 0px #1564ad;
+	background:linear-gradient(to bottom, #11cdd4 5%, #11999e 100%);
+	background-color:#79bbff;
+	border-radius:5px;
+	border:1px solid #337bc4;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:'Montserrat', sans-serif;
+	font-size:17px;
+	font-weight:bold;
+	padding:12px 44px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+}
+ .btn:hover {
+	background:linear-gradient(to bottom, #30e3cb 5%, #2bc4ad 100%);
+	background-color:#378de5;
+}
+ .btn:active {
+	position:relative;
+	top:1px;
+}
