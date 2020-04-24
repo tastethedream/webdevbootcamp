@@ -16,7 +16,17 @@
      font-family: "montserrat-black";
      font-size: 3.5rem;
      font-weight: 900;
-     line-height: 1.5;   
+     line-height: 1.5;  
+ }
+
+ h3{
+   font-family: "montserrat-bold";  
+ }
+
+ p{
+     color: #8f8f8f;
+     font-size: 0.75rem;
+     
  }
  /* Navigation Bar */
 
@@ -46,4 +56,23 @@
     margin-left: 50px;
     width: 60%;
     transform: rotate(+25deg);
+}
+
+/* Features section */
+
+#features{
+    padding:7% 15%;
+}
+
+.feature-box{
+    text-align: center;
+    padding: 5%;
+}
+
+.icon{
+    color:#ef8172;
+    margin-bottom: 1rem;
+}
+.icon:hover{
+    color: #ff4c68;
 }
