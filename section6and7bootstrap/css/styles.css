@@ -9,7 +9,7 @@
  }
 
  .container-fluid{
-     padding: 3% 15%;
+     padding: 3% 15% 7%;
  }
 
  h1{
@@ -62,12 +62,18 @@
     margin-left: 50px;
     width: 60%;
     transform: rotate(+25deg);
+    position: absolute;
+    right: 30%;
+
 }
 
 /* Features section */
 
 #features{
     padding:7% 0 5%;
+    background-color: white;
+    position: relative;
+    z-index: 1;
 }
 
 .feature-box{
@@ -86,7 +92,7 @@
 /* Testimonial Section */
 
 #testimonials{
-    padding: 7% 15%;
+    
     text-align: center;
     background-color: #ef8172;
     color:white;
@@ -97,6 +103,10 @@
     width: 10%;
     border-radius: 100%;
     margin: 20px;
+}
+
+.carousel-item{
+    padding: 7% 15%;
 }
 
 #press{
@@ -110,3 +120,26 @@
     margin: 20px 20px 50px;
 }
 
+/* Pricing Section */
+
+#pricing{
+    padding: 100px;
+    text-align: center;
+}
+
+.pricing-column{
+    padding: 3% 2%;
+}
+
+/* Media Queries */
+
+@media (max-width:1028px) { 
+
+    #title{
+        text-align: center;
+    }
+    .title-image {
+        position: static;
+        transform: rotate(0);
+    }
+}
