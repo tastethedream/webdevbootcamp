@@ -32,6 +32,17 @@ p{
     padding: 7% 15%;
 }
 
+/* Sections */
+
+.colored-section{
+    background-color: #ff4c68;
+    color: white;
+}
+
+.white-section{
+    background-color: white;
+}
+
  /* Navigation Bar */
 
 .navbar{
@@ -50,16 +61,11 @@ p{
      font-family: "montserrat-light";
 }
 
-/* Titles */
-
-#title{
-    background-color: #ff4c68;
-    color: white;
-    text-align: left;
-}
+/* Title Section */
 
 #title .container-fluid{
     padding: 3% 15% 7%;
+    text-align: left;
 }
 
 /* download buttons */
@@ -75,14 +81,12 @@ p{
     transform: rotate(+25deg);
     position: absolute;
     right: 30%;
-
 }
 
 /* Features section */
 
 #features{
     padding:7% 0 5%;
-    background-color: white;
     position: relative;
     z-index: 1;
 }
@@ -99,6 +103,7 @@ p{
     color:#ef8172;
     margin-bottom: 1rem;
 }
+
 .icon:hover{
     color: #ff4c68;
 }
@@ -107,7 +112,6 @@ p{
 
 #testimonials{
     background-color: #ef8172;
-    color:white;
     }
 
 .testimonial-text{
@@ -120,7 +124,10 @@ p{
     border-radius: 100%;
     margin: 20px;
 }
-
+#cta{
+    background-color: #ff4c68;
+    color: white;
+    text-align: center;
 #press{
     background-color: #ef8172;
     padding-bottom: 3%;
@@ -147,12 +154,6 @@ p{
 }
 
 /* call to action */
-
-#cta{
-    background-color: #ff4c68;
-    color: white;
-    text-align: center;
-}
 
 .cta-heading{
   font-family: "montserrat-black";
