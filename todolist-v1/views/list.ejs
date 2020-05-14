@@ -6,8 +6,22 @@
     <title>To Do List</title>
 </head>
 <body>
-    <h1>It's a <%= kindOfDay %>!</h1>
+    <!-- snippet tag to display date  -->
+
+    <h1> <%= kindOfDay %> </h1>
     
-    
+<!-- for loop to create a new li for each user input -->
+
+    <ul>
+        <% for (var i=0; i<newListItems.length; i++){ %>
+            <li><%= newListItems[i] %></li>
+        <% } %>
+    </ul>
+<!-- user input box and submit button -->
+
+    <form action="/" class="" method="post">
+    <input type="text" name="newItem">
+    <button type="submit" name="button">Add</button>
+    </form>
 </body>
 </html>
