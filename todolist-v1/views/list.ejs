@@ -1,27 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
-</head>
-<body>
-    <!-- snippet tag to display date  -->
+<%- include("header") -%> 
+<!-- snippet tag to display date  -->
 
-    <h1> <%= kindOfDay %> </h1>
+    <div class="box" id= "heading" >
+        <h1> <%= listTitle %> </h1>
+    </div>
     
-<!-- for loop to create a new li for each user input -->
-
-    <ul>
-        <% for (var i=0; i<newListItems.length; i++){ %>
-            <li><%= newListItems[i] %></li>
-        <% } %>
-    </ul>
+    <div class= "box">
+        
+            <% for (var i=0; i<newListItems.length; i++){ %>
+        
+        <div class="item">
+            <input type="checkbox">
+            <p><%= newListItems[i] %></p>
+        </div>
+            <% } %>
+        
 <!-- user input box and submit button -->
 
-    <form action="/" class="" method="post">
-    <input type="text" name="newItem">
-    <button type="submit" name="button">Add</button>
+    <form action="/" class="item" method="post">
+    <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+    <button type="submit" name="list" value= <%= listTitle %>>+</button>
     </form>
-</body>
-</html>
+   </div>
+
+   <%- include("footer") -%>
