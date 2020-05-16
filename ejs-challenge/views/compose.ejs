@@ -1,0 +1,41 @@
+<!-- //ejs partials for header -->
+
+<%- include('partials/header');-%>
+
+<h1>Compose</h1>
+
+
+
+<!-- input text box and button -->
+
+<form action="/compose" class="" method ="post">
+    <!-- single line and multilive text input boxes"> -->
+    <div class="form-group">
+        <label>Title</label>
+        <textarea class="form-control" name="newTitle" id="" cols="100" rows="1"></textarea>
+        <label>Post</label>
+        <textarea class="form-control" name="newPost" id="" cols="100" rows="6"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit" name="button" value= "">Publish</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include('partials/footer');-%>
+
