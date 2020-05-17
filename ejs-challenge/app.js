@@ -17,6 +17,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+//array for journal entries
+
 let posts = [];
 
 //displays home.ejs page 
@@ -25,14 +27,19 @@ app.get("/", function(req, res){
 
   //render thw ejs home page and the javascript object 
   //homeStartingContent
-  res.render("home", {startingContent:homeStartingContent });
-  console.log (posts);
+
+  res.render("home", 
+    {startingContent:homeStartingContent,
+      posts:posts
+  });
+
 });
 
 app.get("/contact", function(req, res){
 
   //render thw ejs contact page and the javascript object 
   //contactContent
+
   res.render("contact", {origContactContent:contactContent });
 });
 
@@ -40,7 +47,7 @@ app.get("/about", function(req, res){
 
     //render thw ejs about page and the javascript object 
     //aboutContent
-    res.render("about", {aboutMeContent:aboutContent });
+  res.render("about", {aboutMeContent:aboutContent });
 });
 
 app.get("/compose", function(req, res){
@@ -53,10 +60,28 @@ app.post("/compose", function (req, res){
       title: req.body.newTitle,
       content:req.body.newPost
   };
+  //push each journal entry into the array posts
+
     posts.push(post);
     res.redirect("/");
 });
+// dynamic url step 1 with express
 
+app.get("/posts/:postName", function(req, res){
+  const requestedTitle = req.params.postName;
+
+  posts.forEach(function(post){
+    const storedTitle = post.title;
+
+// does the stored title math the requested title?
+
+    if (storedTitle === requestedTitle){
+      console.log("match found");
+    }
+
+  });
+
+});
 
 app.listen(8080, function(){
   console.log("Server started on port 8080.");
