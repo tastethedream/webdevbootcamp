@@ -5,12 +5,28 @@
   </div>
 
   <div class="box">
-    <% for (let i=0; i<newListItems.length; i++) { %>
-      <div class="item">
-        <input type="checkbox">
-        <p><%=  newListItems[i]  %></p>
+
+    <%newListItems.forEach(function(item){%>
+
+<!-- form responsible for deleting items -->
+
+<form action="/delete" method="post">
+
+
+
+   <div class="item">
+
+    <!-- onchange will carry out an action when checkbox is ticked -->
+        <input type="checkbox" name="checkbox" value="<%=item._id%>" onchange="this.form.submit()">
+      <!-- add .name to only display the name field from the db -->
+        <p><%=  item.name %></p>
       </div>
-      <% } %>
+        
+</form>
+    <%});%>
+
+
+<!-- form responsible for adding new items -->
 
       <form class="item" action="/" method="post">
         <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
