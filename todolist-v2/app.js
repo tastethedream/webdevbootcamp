@@ -78,12 +78,27 @@ if (foundItems.length === 0){
 app.get("/:customListName", function(req, res){
   const customListName = req.params.customListName;
 
-const list = new List({
-  name: customListName,
-  items: defaultItems
-});
+//to discover if a list searched by thre user exixts or not
 
-list.save();
+  List.findOne({name: customListName}, function(err, foundList){
+    if (!err){
+      if(!foundList){
+        //create a new list
+        const list = new List({
+          name: customListName,
+          items: defaultItems
+        });
+        
+        list.save();
+        res.redirect("/" + customListName);
+      } else {
+     //show the existing list
+      res.render("list", {listTitle: foundList.name, newListItems: foundList.items});
+      }
+    }
+  });
+
+
 
 });
 
