@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const _ = require ("lodash");
 
 
 const app = express();
@@ -73,10 +74,10 @@ if (foundItems.length === 0){
 
 
 });
-//dynamic route to enable multiple lists
+//dynamic route to enable multiple lists and added lodash to prevent case issues
 
 app.get("/:customListName", function(req, res){
-  const customListName = req.params.customListName;
+  const customListName = _.capitalize (req.params.customListName);
 
 //to discover if a list searched by thre user exixts or not
 
@@ -104,27 +105,54 @@ app.get("/:customListName", function(req, res){
 
 app.post("/", function(req, res){
   const itemName = req.body.newItem;
+  const listName = req.body.list;
   const item = new Item({
     name: itemName
 });
-
+//if using the today list save item to that list and redirect to home page
+if (listName === "Today"){
   item.save();
   res.redirect("/");
+} else {
+  //else find the relevent list and add the new item to that list and save the list then redirect to the route the user came from
+
+  List.findOne({name: listName}, function(err, foundList){
+    foundList.items.push(item);
+    foundList.save();
+    res.redirect("/" + listName );
+  });
+}
 });
 
 app.post("/delete", function(req, res){
   const checkedItemId = req.body.checkbox;
+  const listName = req.body.listName;
+  //if statement to see if the item to be deleted is from home route or one of the other lists and action accordingly
 
+  if(listName === "Today"){
   // deleting the checked off item using its id
+    Item.findByIdAndRemove(checkedItemId, function(err){
+      if (!err){
+        console.log("successfully deleted checked item");
+        res.redirect("/");
+      }
+    });
 
-  Item.findByIdAndRemove(checkedItemId, function(err){
-    if (!err){
-      console.log("successfully deleted checked item");
-      res.redirect("/");
-    }
+  } else {
+    List.findOneAndUpdate({name: listName}, {$pull: {items: {_id:checkedItemId}}},function (err, foundList){
+      if(!err){
+        res.redirect("/" + listName);
+      }
   });
 
+}
+
 });
+
+
+
+
+
 
 
 
