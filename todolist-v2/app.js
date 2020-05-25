@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://admin-dawn:<password goes here>@cluster0-5mxtx.mongodb.net/todolistDB", { useNewUrlParser: true });
 
 //schema
 
@@ -159,8 +159,15 @@ app.post("/delete", function(req, res){
 app.get("/about", function(req, res){
   res.render("about");
 });
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8080;
+}
+app.listen(port);
+
+
 
 app.listen(8080, function() {
-  console.log("Server started on port 8080");
+  console.log("Server started successfully");
 
 });
