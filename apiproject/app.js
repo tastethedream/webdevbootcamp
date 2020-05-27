@@ -20,23 +20,28 @@ const articleSchema = {
 const Article = mongoose.model("Article", articleSchema);
 
 //making the API RESTful GET
-//GET route to fetch all of the articles
 
-app.get("/articles", function(req, res){
+//chained route handlers using express
+//GET route to fetch all of the articles
+//GET route to fetch all of the articles
+//POST route to post a new article
+//DELETE route to delete all the articles
+
+
+
+app.route("/articles")
+
+.get(function(req, res){
     Article.find(function(err, foundArticles){
         if (!err){
             res.send(foundArticles);
-        } else {
+      } else {
             res.send(err);
         }
     });    
-});
+}) 
 
-//POST route to post a new article
-
-app.post("/articles", function(req, res){
-    console.log();
-    console.log();
+.post(function(req, res){
 
 const newArticle = new Article({
     title: req.body.title,
@@ -49,17 +54,77 @@ newArticle.save(function(err){
     } else {
         res.send(err);
     }
+ });
+})
+
+.delete(function(req, res){
+    Article.deleteMany(function(err){
+        if (!err){
+            res.send("Successfully deleted articles");
+        } else {
+            res.send(err);
+        }
+    });
 });
+//chained route handlers using express
+//GET route to fetch a specific article
 
+app.route("/articles/:articleTitle")
+
+.get(function(req, res){
+    Article.findOne({title: req.params.articleTitle}, function(err, foundArticle){
+        if(foundArticle){
+                res.send(foundArticle);
+        } else {
+            res.send("There were no articles matching your title");
+        }
+    });
+})
+// PUT request to update a specific article
+
+.put(function(req, res){
+    Article.findOneAndUpdate(
+     
+        {title: req.params.articleTitle},
+        {title: req.body.title, content: req.body.content},
+        {returnOriginal: false},
+        function(err){
+            if (!err){
+                res.send("Succesfully updated article");
+               
+            }    
+            
+        }
+    );
+})
+//PATCH a specific article
+
+.patch(function(req, res){
+    Article.findOneAndUpdate(
+        {title: req.params.articleTitle},
+        {$set: req.body},
+        {returnOriginal: false},
+        function(err){
+            if(!err){
+                res.send("Successfully updated the article")
+            } else{
+                res.send(err);
+            }
+        }
+    );
+})
+
+.delete(function(req, res){
+    Article.deleteOne(
+        {title: req.params.articleTitle},
+        function(err){
+        if (!err){
+            res.send("Successfully deleted article");
+        } else {
+            res.send(err);
+        }
+    });
 });
-
-
-
-
-
-
-
-
 
 
 
